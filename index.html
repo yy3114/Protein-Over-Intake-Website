@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蛋白質攝取過量警訊</title>
+    <!-- 引入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* 輕微的灰色背景 */
+        }
+        .accordion-item[aria-expanded="true"] .accordion-icon,
+        .sub-accordion-btn[aria-expanded="true"] .accordion-icon {
+            transform: rotate(180deg);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+        .accordion-content.expanded {
+            max-height: 9999px; /* 使用一個足夠大的數值以確保內容能完整顯示 */
+            padding-bottom: 1.5rem;
+        }
+        .accordion-sub-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+        .accordion-sub-content.expanded {
+            max-height: 9999px; /* 使用一個足夠大的數值以確保內容能完整顯示 */
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl p-6 sm:p-10">
+        <!-- 頁面主標題 -->
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-center text-rose-600 mb-4">
+            蛋白質攝取過量
+        </h1>
+        <h2 class="text-2xl sm:text-3xl font-bold text-center text-indigo-700 mb-8">
+            身體用6個警訊告訴你
+        </h2>
+
+        <!-- 介紹段落 -->
+        <p class="text-base sm:text-lg text-gray-700 leading-relaxed mb-8 border-b-2 pb-6 border-gray-200">
+            脂肪和碳水化合物漸漸成為千夫所指的糟糕飲食，但一提到蛋白質，評價幾乎都是正面的。理由很簡單，蛋白質是重要的營養素，可以給我們強韌的骨質、肌肉、緊實的肌膚。不僅如此，它也扛起數千種不同的化學反應，確保身體最好的運作。
+            但重點來了，這不代表愈多愈好。如果身體出現以下警訊，不妨重新檢視自己的飲食，看看蛋白質是否攝取過量了：
+        </p>
+
+        <!-- 新增的蛋白質攝取過量定義區塊 -->
+        <div class="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-sm border-l-4 border-indigo-500 mb-8">
+            <h3 class="text-xl font-bold text-indigo-700 mb-2">
+                什麼是蛋白質攝取過量？
+            </h3>
+            <p class="text-gray-700 text-base leading-relaxed">
+                一般而言，健康成年人每日的蛋白質建議攝取量為每公斤體重約
+                <span class="font-bold text-indigo-600">0.8至1.0公克</span>。
+                例如，一位體重70公斤的成人，每日蛋白質攝取量約為56至70公克。
+            </p>
+            <p class="text-gray-700 text-base leading-relaxed mt-2">
+                當每日攝取量超過每公斤體重
+                <span class="font-bold text-red-600">2.0公克</span>時，
+                即被視為「過量攝取」，這可能會對身體造成負擔，並引發以下警訊。
+            </p>
+        </div>
+
+        <!-- 手風琴（Accordion）區塊開始 -->
+        <div id="accordion-container">
+
+            <!-- 項目一：頻尿 -->
+            <div class="mb-4">
+                <button
+                    class="accordion-item flex items-center justify-between w-full p-4 text-left font-semibold text-lg sm:text-xl text-gray-900 bg-blue-100 rounded-lg shadow-sm transition duration-300 hover:bg-blue-200"
+                    aria-expanded="false" aria-controls="accordion-1">
+                    <span>一、頻尿</span>
+                    <!-- 替換箭頭為牛奶 emoji -->
+                    <span class="accordion-icon w-6 h-6 transform transition-transform duration-300 flex items-center justify-center text-2xl">🥛</span>
+                </button>
+                <div id="accordion-1" class="accordion-content p-6 text-gray-700 bg-white border border-t-0 rounded-b-lg">
+                    <p class="mb-4">
+                        如果你發現跑廁所上一號的次數太頻繁，吃太多蛋白質是可能的原因之一。人體腎臟所能處理的蛋白質有限，因此分解後蛋白質所產生的廢物可能會累積起來。
+                    </p>
+                    <p class="mb-4">
+                        《營養素》（Nutrients）期刊2020年研究發現，採取植基和低脂乳蛋白飲食的人，腎結石風險低於以肉品、動物性蛋白質飲食為主的人。這是因為食用高動物性蛋白飲食的人尿酸生成量增加，患腎結石的風險更大。
+                    </p>
+                    <p>
+                        《腎臟病學》（Nefrología）研究報告指出，攝取太多蛋白質導致代謝廢物累積，也會造成酸性更強的環境，導致一直想跑廁所。時間久了，尿酸增加也可能導致骨骼和肝臟出問題。
+                    </p>
+                    
+                    <!-- 新增「同場加映」區塊 -->
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <button id="show-more-btn-1" class="sub-accordion-btn flex items-center justify-between w-full p-3 text-left font-semibold text-sm text-gray-700 bg-yellow-100 rounded-lg shadow-sm transition duration-300 hover:bg-yellow-200"
+                            aria-expanded="false" aria-controls="extra-content-1">
+                            <span class="flex items-center">
+                                <!-- 投影機SVG圖示 -->
+                                <svg class="w-5 h-5 mr-2 text-gray-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 17H2V7h20v10zM12 9h-2V7h2v2zM12 11h-2v2h2v-2zM12 15h-2v2h2v-2zM14 9h-2V7h2v2zM14 11h-2v2h2v-2zM14 15h-2v2h2v-2zM16 9h-2V7h2v2zM16 11h-2v2h2v-2zM16 15h-2v2h2v-2zM18 9h-2V7h2v2zM18 11h-2v2h2v-2zM18 15h-2v2h2v-2z" />
+                                </svg>
+                                同場加映
+                            </span>
+                            <svg class="accordion-icon w-4 h-4 transform transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="extra-content-1" class="accordion-sub-content p-4 text-gray-700 bg-yellow-100 border border-t-0 rounded-b-lg">
+                            <h3 class="text-lg font-bold mb-2">高鈣尿如何影響膀胱與排尿</h3>
+                            <ul class="list-disc list-inside space-y-1 mb-4">
+                                <li><span class="font-bold">刺激膀胱黏膜:</span> 高鈣尿會讓尿液呈現「結晶化」傾向，細小的鈣鹽結晶可刺激膀胱壁與尿道黏膜，引發急迫感與頻尿，甚至有時誤診為膀胱炎。</li>
+                                <li><span class="font-bold">微小結石通過:</span> 在腎盞或輸尿管形成的細小結晶或砂石掉入膀胱，也會刺激排尿反射。</li>
+                                <li><span class="font-bold">伴隨輕度膀胱發炎:</span> 長期結晶刺激可能造成輕微的無菌性發炎，進一步增加膀胱敏感度。</li>
+                            </ul>
+                            <h4 class="text-base font-bold mb-2 text-indigo-600">臨床提示</h4>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>頻尿但尿液培養陰性，且尿液檢查可見鈣鹽結晶，應考慮高鈣尿。</li>
+                                <li>小孩的夜尿或日間頻尿，有時背後原因就是高鈣尿症。</li>
+                                <li>高鈣尿患者常合併尿路結石或顯微血尿。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 項目二：情緒莫名低落 -->
+            <div class="mb-4">
+                <button
+                    class="accordion-item flex items-center justify-between w-full p-4 text-left font-semibold text-lg sm:text-xl text-gray-900 bg-rose-100 rounded-lg shadow-sm transition duration-300 hover:bg-rose-200"
+                    aria-expanded="false" aria-controls="accordion-2">
+                    <span>二、情緒莫名低落</span>
+                    <!-- 替換箭頭為魚 emoji -->
+                    <span class="accordion-icon w-6 h-6 transform transition-transform duration-300 flex items-center justify-center text-2xl">🐟</span>
+                </button>
+                <div id="accordion-2" class="accordion-content p-6 text-gray-700 bg-white border border-t-0 rounded-b-lg">
+                    <p class="mb-4">
+                        高蛋白飲食也許給了你更緊實的身體線條，或者更接近你的體重目標，但，它會不會也讓你心情低落呢？有可能，特別是如果你的蛋白質與碳水攝取比例大大失衡的時候。
+                    </p>
+                    <p class="mb-4">
+                        《生活方式和基因組學》（Lifestyle Genomics）2018年報告發現，採取高蛋白、低脂飲食的健康成年人更可能陷入憂鬱。低碳水飲食也跟焦慮、憂鬱和壓力有關。
+                    </p>
+                    <p class="mb-4">
+                        這些研究結果其實符合先前的理論，碳水化合物可幫助促進血清素製造，因此吃適量的碳水化合物可以降低焦慮和憂鬱的風險。
+                    </p>
+                    <p>
+                        然而，其他研究曾得到不同結果，指出低碳水、適量蛋白質和高脂肪飲食，對人的心情並沒有影響。不論如何，想保持好心情，均衡的飲食還是上策。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 項目三：排泄不順暢 -->
+            <div class="mb-4">
+                <button
+                    class="accordion-item flex items-center justify-between w-full p-4 text-left font-semibold text-lg sm:text-xl text-gray-900 bg-green-100 rounded-lg shadow-sm transition duration-300 hover:bg-green-200"
+                    aria-expanded="false" aria-controls="accordion-3">
+                    <span>三、排泄不順暢</span>
+                    <!-- 替換箭頭為植物 emoji -->
+                    <span class="accordion-icon w-6 h-6 transform transition-transform duration-300 flex items-center justify-center text-2xl">🌿</span>
+                </button>
+                <div id="accordion-3" class="accordion-content p-6 text-gray-700 bg-white border border-t-0 rounded-b-lg">
+                    <p class="mb-4">
+                        高蛋白飲食通常缺乏纖維，特別是如果你是攝取動物性蛋白質。纖維有助於促進腸道的蠕動，而且只能在植物性食物中找到。
+                    </p>
+                    <p>
+                        因此，不妨多元化你的蛋白質來源，或是攝取同時含有蛋白和纖維的全穀類、豆類或大豆製品「天貝」。或者考慮增加蔬果的攝取量，加以補強，這樣還可以避免慢性病，一舉數得。
+                    </p>
+                </div>
+            </div>
+            
+            <!-- 項目四：你的體重逐漸回升 -->
+            <div class="mb-4">
+                <button
+                    class="accordion-item flex items-center justify-between w-full p-4 text-left font-semibold text-lg sm:text-xl text-gray-900 bg-purple-100 rounded-lg shadow-sm transition duration-300 hover:bg-purple-200"
+                    aria-expanded="false" aria-controls="accordion-4">
+                    <span>四、你的體重逐漸回升</span>
+                    <!-- 替換箭頭為肉 emoji -->
+                    <span class="accordion-icon w-6 h-6 transform transition-transform duration-300 flex items-center justify-center text-2xl">🥩</span>
+                </button>
+                <div id="accordion-4" class="accordion-content p-6 text-gray-700 bg-white border border-t-0 rounded-b-lg">
+                    <p class="mb-4">
+                        很多人說，高蛋白飲食可以讓你的衣服小一號，但長時間的影響，就不一定那麼吸引人了。高蛋白飲食通常意味著吃進非常少的碳水化合物，但這對大多數人來說，不是長久之計。當食慾反撲，反而會造成衝動飲食，或是讓你一大早就缺乏精力。
+                    </p>
+                    <p>
+                        長期研究大腦與體重之間關連性的神經科學家艾默特博士（Sandra Aamodt）說，「如果一件事無法永遠持續下去，就不該拿來當作減肥方式。」
+                    </p>
+                </div>
+            </div>
+
+            <!-- 項目五：你總是很疲倦 -->
+            <div class="mb-4">
+                <button
+                    class="accordion-item flex items-center justify-between w-full p-4 text-left font-semibold text-lg sm:text-xl text-gray-900 bg-orange-100 rounded-lg shadow-sm transition duration-300 hover:bg-orange-200"
+                    aria-expanded="false" aria-controls="accordion-5">
+                    <span>五、你總是很疲倦</span>
+                    <!-- 替換箭頭為肌肉 emoji -->
+                    <span class="accordion-icon w-6 h-6 transform transition-transform duration-300 flex items-center justify-center text-2xl">💪</span>
+                </button>
+                <div id="accordion-5" class="accordion-content p-6 text-gray-700 bg-white border border-t-0 rounded-b-lg">
+                    <p class="mb-4">
+                        就算你睡滿八小時，但如果你攝取了過量蛋白質，恐怕還是會感覺疲累。背後有許多原因，首先，過度飲食本就會給腎臟、肝臟和骨骼帶來壓力，使它們超時工作。此外，缺乏碳水化合物則會影響我們的大腦，我們變得不那麼敏銳、專注也會下降，活力減退。
+                    </p>
+                    <p>
+                        碳水化合物是大腦活力的主要來源，但當然你還是可以盡可能選擇好的、健康的攝取來源，像是全榖物、水果和蔬菜。這樣你不僅能把精力找回來，還可以增加維他命、礦物質和纖維的攝取。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 項目六：你「口氣」不佳 -->
+            <div class="mb-4">
+                <button
+                    class="accordion-item flex items-center justify-between w-full p-4 text-left font-semibold text-lg sm:text-xl text-gray-900 bg-teal-100 rounded-lg shadow-sm transition duration-300 hover:bg-teal-200"
+                    aria-expanded="false" aria-controls="accordion-6">
+                    <span>六、你「口氣」不佳</span>
+                    <!-- 替換箭頭為雞蛋 emoji -->
+                    <span class="accordion-icon w-6 h-6 transform transition-transform duration-300 flex items-center justify-center text-2xl">🥚</span>
+                </button>
+                <div id="accordion-6" class="accordion-content p-6 text-gray-700 bg-white border border-t-0 rounded-b-lg">
+                    <p class="mb-4">
+                        聽過「生酮呼吸」嗎？生酮飲食流行起來後，許多人留意到了身體為了適應這樣的飲食，不免會散發出不那麼美妙的氣味，有些人認為味道像丙酮，也就是指甲油去光水中常見的一種成分。
+                    </p>
+                    <p>
+                        解方依然是更均衡的飲食，這也有助你的口氣更加清新。試試看把幾種蛋白質來源，由動物性改成植物性也會有幫助。
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- 新增資料來源區塊 -->
+        <div class="mt-10 border-t-2 pt-6 border-gray-200">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">資料來源</h3>
+            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                <li><a href="https://www.mayoclinichealthsystem.org/" target="_blank" class="text-blue-600 hover:underline">Mayo Clinic Health System</a></li>
+                <li><a href="https://www.health.harvard.edu/" target="_blank" class="text-blue-600 hover:underline">Harvard Health</a></li>
+                <li><a href="https://www.eatingwell.com/" target="_blank" class="text-blue-600 hover:underline">EatingWell</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- JavaScript 實現手風琴功能 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            const subAccordionBtn = document.getElementById('show-more-btn-1');
+            const extraContent = document.getElementById('extra-content-1');
+
+            accordionItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const expanded = item.getAttribute('aria-expanded') === 'true' || false;
+                    const content = document.getElementById(item.getAttribute('aria-controls'));
+
+                    // 關閉所有其他項目
+                    accordionItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.setAttribute('aria-expanded', 'false');
+                            document.getElementById(otherItem.getAttribute('aria-controls')).classList.remove('expanded');
+                        }
+                    });
+
+                    // 切換當前項目的狀態
+                    item.setAttribute('aria-expanded', !expanded);
+                    if (!expanded) {
+                        content.classList.add('expanded');
+                    } else {
+                        content.classList.remove('expanded');
+                    }
+                });
+            });
+
+            // 子層手風琴的邏輯
+            subAccordionBtn.addEventListener('click', () => {
+                const expanded = subAccordionBtn.getAttribute('aria-expanded') === 'true' || false;
+                subAccordionBtn.setAttribute('aria-expanded', !expanded);
+                extraContent.classList.toggle('expanded');
+            });
+        });
+    </script>
+</body>
+</html>
+
